@@ -55,23 +55,76 @@ function loadMainConfigs(dir: string = "."): Record<string, string> {
 
 // === CORE ===
 async function generateReadme(projectSummary: string, configs: Record<string, string>): Promise<string> {
-  const prompt = `
-You are an expert software engineer and technical writer.
-Analyze the following project structure and configuration files, and create a professional README.md in English.
+const prompt = `
+You are an expert technical writer.  
+Generate a professional English README.md file for this project using the scanned project structure and configuration files below.
 
-### Project Structure
+### 📂 Project Structure
 ${projectSummary}
 
-### Configuration Files
+### ⚙️ Configuration Files
 ${JSON.stringify(configs, null, 2)}
 
-### README Requirements:
-- Title and concise project description
-- Installation steps and usage guide
-- List main technologies and dependencies
-- Include example commands or code blocks
-- Use professional Markdown structure
+---
+
+### 🧾 README Requirements
+
+The README must follow this structure and be written in clear, professional English with emojis and Markdown formatting:
+
+# 💡 Project Name
+A short and catchy one-line project title.  
+Then, write a concise paragraph describing what the project does and its main purpose.
+
+---
+
+## ✨ Features
+List all main features with short emoji-based bullet points, for example:
+- 🔑 User authentication and authorization  
+- 💬 Real-time communication  
+- ⚙️ Admin dashboard for management  
+
+---
+
+## 🛠️ Tech Stack
+Clearly separate backend and frontend parts if applicable:
+
+**Backend:**
+- Node.js + Express  
+- GraphQL + Prisma ORM  
+- PostgreSQL  
+
+**Frontend:**
+- React + Vite  
+- TypeScript  
+- Apollo Client  
+
+---
+
+## 🚀 Getting Started
+Explain how to set up and run the project locally:
+
+1. Clone the repository  
+2. Install dependencies  
+3. Configure environment variables  
+4. Start the development servers  
+
+Include code blocks for commands, for example:
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
+
+---
+
+## 📂 Project Overview
+If possible, summarize the folder structure and main files.
+
+---
+
+Make the README visually appealing, with emojis, proper Markdown formatting, and concise but complete information.  
+Do **not** include placeholder text like “TODO” — only confident information based on the provided files.
 `;
+
 
   console.log("🧠 Sending request to model...");
 
