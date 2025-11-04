@@ -23,7 +23,7 @@ Follow these steps to set up and run the MyOpenReadme tool locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/myopenreadme.git
+   git clone https://github.com/alekssawa/myopenreadme.git
    cd myopenreadme
    ```
 
